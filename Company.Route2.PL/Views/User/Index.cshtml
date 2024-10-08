@@ -1,0 +1,66 @@
+﻿@model IEnumerable<UserViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+<br />
+<br />
+
+
+<form asp-action="Index">
+    <div class="row m-5">
+        <div class="col-8">
+            <input type="text" id="id" name="SearchWord" class="form-control" />
+        </div>
+        <div class="col-4">
+            <input type="submit" value="Search" class="btn btn-success" />
+        </div>
+    </div>
+</form>
+
+@if (Model.Count() == 0)
+{
+    <div>
+        <h4 class="alert"> there are No Users </h4>
+    </div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Fname</th>
+                <th>Lname</th>
+                <th>Roles</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var emp in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(e => emp.Id)</td>
+                    <td>@Html.DisplayFor(e => emp.Fname)</td>
+                    <td>@Html.DisplayFor(e => emp.Lname)</td>
+                    <td>@Html.DisplayFor(e => emp.Email)</td>
+                    <td>@string.Join(" ", emp.Roles)</td>
+         
+                    <partial name="IndexPartialView" model="emp.Id"></partial>
+                </tr>
+            }
+
+        </tbody>
+
+
+
+    </table>
+}
+
+
+

@@ -1,0 +1,81 @@
+﻿@using Company.Route2.DAL.Models
+@model EmployeeViewModel
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var department = new SelectList(ViewData["department"] as IEnumerable<Departement>,"Id", "Name");
+}
+<div asp-validation-summary="All"></div>
+
+<div>
+    <label asp-for="Image" class="col-form-label"></label><br />
+    <input asp-for="Image" class="form-control" />
+    <br />
+</div>
+
+<div>
+    <label asp-for="Name" class="col-form-label"></label><br />
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <br />
+</div>
+
+<div>
+    <label asp-for="Age" class="col-form-label"></label><br />
+    <input asp-for="Age" class="form-control" />
+    <span asp-validation-for="Age" class="text-danger"></span>
+    <br />
+</div>
+
+<div>
+    <label asp-for="Salary" class="col-form-label"></label><br />
+    <input asp-for="Salary" class="form-control" />
+    <span asp-validation-for="Salary" class="text-danger"></span>
+    <br />
+</div>
+<div>
+    <label asp-for="Address" class="col-form-label"></label><br />
+    <input asp-for="Address" class="form-control" />
+    <span asp-validation-for="Address" class="text-danger"></span>
+    <br />
+</div>
+<div>
+    <label asp-for="DateOfHiring" class="col-form-label"></label><br />
+    <input asp-for="DateOfHiring" class="form-control" />
+    <br />
+</div>
+<div>
+    <label asp-for="Email" class="col-form-label"></label><br />
+    <input asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+
+    <br />
+</div>
+<div>
+    <label class="col-form-label"> WorkFor</label><br />
+
+    <select asp-for="WorkForId" asp-items="@department" class="form-control">
+        <option value="@null"> -- select Department --</option>
+
+    </select>
+    <br />
+</div>
+<div>
+    <label asp-for="IsActive" class="form-check"></label><br />
+    <input asp-for="IsActive" class="form-check" />
+
+    <br />
+</div>
+<div>
+    <label asp-for="PhoneNumber" class="col-form-label"></label><br />
+    <input asp-for="PhoneNumber" class="form-control" />
+    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+    <br />
+</div>
+@section x {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

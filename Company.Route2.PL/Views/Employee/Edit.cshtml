@@ -1,0 +1,23 @@
+﻿@using Company.Route2.DAL.Models
+
+@model EmployeeViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <input hidden asp-for="ImageName"/>
+
+    <div>
+        <img src="~/Files/Images/@Model.ImageName" width="75" class="rounded-circle" />
+    </div>
+  <partial name="Shared/CreateEdit.cshtml"></partial>
+    <input type="submit" value="Save" class="btn btn-warning" />
+    <a asp-action="Index" class="btn btn-light">Back to List </a>
+
+</form>

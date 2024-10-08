@@ -1,0 +1,27 @@
+﻿@using Company.Route2.DAL.Models
+@model RoleViewModel
+
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div asp-validation-summary="All"></div>
+<div>
+    <label asp-for="Name" class="col-form-label"></label><br />
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+
+    <br />
+</div>
+<div>
+    <input type="hidden" asp-for="Id" class="form-control" />
+
+</div>
+
+
+
+@section x {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

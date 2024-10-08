@@ -1,0 +1,18 @@
+﻿@using Company.Route2.DAL.Models
+@model EmployeeViewModel
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h1>Create page </h1>
+<form asp-action="Create"  enctype="multipart/form-data">
+    <partial name="Shared\CreateEdit.cshtml"></partial>
+
+    <input type="submit" value="Submit" class="btn btn-primary" />
+    <a asp-action="Index"class="btn btn-light">Back to List </a>
+</form>
+
+

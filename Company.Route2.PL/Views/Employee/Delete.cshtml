@@ -1,0 +1,63 @@
+﻿@using Company.Route2.DAL.Models
+@model EmployeeViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+<form asp-action="Delete"enctype="multipart/form-data">
+    <input hidden asp-for="ImageName" />
+
+    <div>
+        <img src="~/Files/Images/@Model.ImageName" width="75" class="rounded-circle" />
+    </div>
+    <div>
+        <label asp-for="Name" class="col-form-label"></label><br />
+        <input asp-for="Name" class="form-control" readonly />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Age" class="col-form-label"></label><br />
+        <input asp-for="Age" class="form-control" readonly />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Salary" class="col-form-label"></label><br />
+        <input asp-for="Salary" class="form-control" readonly />
+        <br />
+    </div>
+    <div>
+        <label asp-for="Address" class="col-form-label"></label><br />
+        <input asp-for="Address" class="form-control" readonly />
+        <br />
+    </div>
+    <div>
+        <label asp-for="DateOfHiring" class="col-form-label"></label><br />
+        <input asp-for="DateOfHiring" class="form-control"readonly  />
+        <br />
+    </div>
+    <div>
+        <label asp-for="Email" class="col-form-label"></label><br />
+        <input asp-for="Email" class="form-control" readonly />
+
+        <br />
+    </div>
+    <div>
+        <label asp-for="IsActive" class="form-check"></label><br />
+        <input asp-for="IsActive" class="form-check" readonly />
+
+        <br />
+    </div>
+    <div>
+        <label asp-for="PhoneNumber" class="col-form-label"></label><br />
+        <input asp-for="PhoneNumber" class="form-control" readonly />
+
+        <br />
+    </div>
+    <input type="submit" value="Delete" class="btn btn-waring"/> 
+    <a asp-action="Index" class="btn btn-light">Back to List </a>
+</form>
+

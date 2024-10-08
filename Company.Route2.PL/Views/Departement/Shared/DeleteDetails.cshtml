@@ -1,0 +1,24 @@
+﻿@using Company.Route2.DAL.Models
+@model DepartmentViewModel
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div>
+    <label asp-for="Code" class="col-form-label"></label><br />
+    <input asp-for="Code" class="form-control" readonly />
+    <br />
+</div>
+
+<div>
+    <label asp-for="Name" class="col-form-label"></label><br />
+    <input asp-for="Name" class="form-control" readonly />
+    <br />
+</div>
+<div>
+    <label asp-for="DateOfCreation" class="col-form-label"></label><br />
+    <input asp-for="DateOfCreation" class="form-control" readonly />
+    <br />
+</div>
+<input type="submit" value="Delete" class="btn btn-waring" />
+<a asp-action="Index" class="btn btn-light">Back to List </a>

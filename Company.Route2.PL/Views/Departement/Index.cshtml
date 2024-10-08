@@ -1,0 +1,66 @@
+﻿@using Company.Route2.DAL.Models
+
+@model IEnumerable<DepartmentViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Departement</h1>
+<br />
+<br />
+<a asp-controller="Departement" asp-action="Create" class="btn btn-primary">Create Departement</a>
+
+<br />
+<br />
+@if (!string.IsNullOrEmpty(TempData["message4"] as string))
+
+{
+<div>
+    <p class="btn btn-success"> @TempData["message4"] </p>
+</div>
+}
+<div> 
+    <p class="btn btn-light"> @ViewData["message"] </p>
+</div>
+
+@if (Model.Count() == 0)
+{
+    <div>
+        <h4 class="alert"> there are no departement </h4>
+    </div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Date Of Creation</th>
+                <th>Detials</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                @foreach (var dept in Model)
+                {
+                    <tr>
+                    <td> @dept.Code </td>
+                    <td> @dept.Name </td>
+                    <td> @dept.DateOfCreation </td>
+                    <partial name="IndexPartialView" model="dept.Id.ToString()"></partial>
+
+                    </tr>
+                }
+             
+        </tbody>
+
+
+
+    </table>
+}
+
+
+

@@ -1,0 +1,89 @@
+﻿@using Company.Route2.DAL.Models
+
+@model IEnumerable<EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Employee</h1>
+<br />
+<br />
+<a asp-controller="Employee" asp-action="Create" class="btn btn-primary">Create Employee</a>
+
+<br />
+<br />
+<form asp-action="Index">
+    <div class="row m-5">
+        <div class="col-8">
+            <input type="text" id ="id"name="SearchWord" class="form-control" />
+        </div>
+        <div class="col-4">
+            <input type="submit" value="Search" class="btn btn-success" />
+        </div>
+    </div>
+</form>
+@if (  ! string.IsNullOrEmpty(TempData["message3"] as string))
+{
+    <div>
+        <p class="btn btn-success"> @TempData["message3"] </p>
+    </div>
+}
+
+<div>
+    <p class="btn btn-light"> @ViewBag.message2</p>
+</div>
+@if (Model.Count() == 0)
+{
+    <div>
+        <h4 class="alert"> there are no Employee </h4>
+    </div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th> Age</th>
+                <th> Salary</th>
+                <th> Address</th>
+                <th> DateOfHiring</th>
+                <th> Email</th>
+                <th> Workfor</th>
+                <th> IsActive</th>
+                <th> PhoneNumber</th>
+                <th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                @foreach (var emp in Model)
+                {
+                    <tr>
+                    <td>@Html.DisplayFor(e => emp.Name)</td>
+                    <td>
+                        <img src="~/Files/Images/@emp.ImageName" width="75"  class="rounded-circle"/>
+                    </td>
+                    <td>@Html.DisplayFor(e => emp.Age)</td>
+                    <td>@Html.DisplayFor(e => emp.Salary)</td>
+                    <td>@Html.DisplayFor(e => emp.Address)</td>
+                    <td>@Html.DisplayFor(e => emp.DateOfHiring)</td>
+                    <td>@Html.DisplayFor(e => emp.Email)</td>
+                    <td>@emp.WorkFor?.Name</td>
+                    <td>@Html.DisplayFor(e => emp.IsActive)</td>
+                    <td>@Html.DisplayFor(e => emp.PhoneNumber)</td>
+                    <partial name="IndexPartialView" model="emp.Id.ToString()"></partial>
+                    </tr>
+                }
+             
+        </tbody>
+
+
+
+    </table>
+}
+
+
+

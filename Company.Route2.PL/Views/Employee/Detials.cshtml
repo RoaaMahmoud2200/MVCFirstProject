@@ -1,0 +1,75 @@
+﻿@using Company.Route2.DAL.Models
+
+@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Detials";
+}
+@{
+    var department = new SelectList(ViewData["department"] as IEnumerable<Departement>, "Id", "Name");
+}
+
+<h1>Detials</h1>
+
+<form enctype="multipart/form-data">
+
+    <div>
+        <img src="~/Files/Images/@Model.ImageName" width="75" class="rounded-circle" />
+    </div>
+
+    <div>
+        <label asp-for="Name" class="col-form-label"></label><br />
+        <input asp-for="Name" class="form-control" readonly />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Age" class="col-form-label"></label><br />
+        <input asp-for="Age" class="form-control" readonly />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Salary" class="col-form-label"></label><br />
+        <input asp-for="Salary" class="form-control" readonly />
+        <br />
+    </div>
+    <div>
+        <label asp-for="Address" class="col-form-label"></label><br />
+        <input asp-for="Address" class="form-control" readonly />
+        <br />
+    </div>
+    <div>
+        <label asp-for="DateOfHiring" class="col-form-label"></label><br />
+        <input asp-for="DateOfHiring" class="form-control" readonly />
+        <br />
+    </div>
+    <div>
+        <label asp-for="Email" class="col-form-label"></label><br />
+        <input asp-for="Email" class="form-control" readonly />
+
+        <br />
+    </div>
+    <div>
+        <label class="col-form-label"> WorkFor</label><br />
+        <select asp-for="WorkForId" asp-items="@department" class="form-control" readonly>
+            <option value="@null" readonly> -- select Department --</option>
+
+        </select>
+        <br />
+    </div>
+    <div>
+        <label asp-for="IsActive" class="form-check"></label><br />
+        <input asp-for="IsActive" class="form-check" readonly />
+
+        <br />
+    </div>
+    <div>
+        <label asp-for="PhoneNumber" class="col-form-label"></label><br />
+        <input asp-for="PhoneNumber" class="form-control" readonly />
+
+        <br />
+    </div>
+    <a asp-action="Edit" asp-route-Id="@Model.Id" class="btn btn-waring"> Edit</a>
+    <a asp-action="Index" class="btn btn-light">Back to List </a>
+</form>
+
